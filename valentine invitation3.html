@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Valentine Invitation 💌</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #ff758c, #ff7eb3);
+      font-family: 'Segoe UI', sans-serif;
+      overflow: hidden;
+    }
+
+    .card {
+      background: white;
+      padding: 40px;
+      border-radius: 20px;
+      text-align: center;
+      width: 320px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+      position: relative;
+      z-index: 1;
+    }
+
+    h1 {
+      color: #ff4d6d;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 18px;
+      color: #333;
+      margin-bottom: 30px;
+    }
+
+    .buttons {
+      position: relative;
+      height: 60px;
+    }
+
+    button {
+      border: none;
+      padding: 12px 20px;
+      border-radius: 30px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.2s;
+      position: absolute;
+    }
+
+    .yes {
+      background: #ff4d6d;
+      color: white;
+      left: 30px;
+    }
+
+    .yes:hover {
+      background: #e63950;
+      transform: scale(1.1);
+    }
+
+    .no {
+      background: #ddd;
+      color: #555;
+      right: 30px;
+    }
+
+    /* POPUP */
+    .popup {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.6);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 999;
+    }
+
+    .popup-content {
+      background: white;
+      padding: 30px;
+      border-radius: 20px;
+      text-align: center;
+      animation: pop 0.5s ease;
+    }
+
+    .popup-content img {
+      width: 250px;
+      border-radius: 15px;
+    }
+
+    @keyframes pop {
+      0% { transform: scale(0.5); }
+      100% { transform: scale(1); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <h1>Hey Chaimae 💖</h1>
+    <p>
+      Roses are red 🌹<br>
+      Violets are blue 💙<br>
+      Will you be my Valentine?
+    </p>
+
+    <div class="buttons">
+      <button class="yes" onclick="showLove()">
+        Yes 💘
+      </button>
+
+      <button class="no" id="noBtn">
+        No 🙈
+      </button>
+    </div>
+  </div>
+
+  <!-- POPUP -->
+  <div class="popup" id="popup">
+    <div class="popup-content">
+      <h2>YAAAY 💕🎆</h2>
+      <p>You just made my day 🌸💖</p>
+      <img src="https://media.giphy.com/media/l0MYt5jPR6QX5pnqM/giphy.gif" alt="Love GIF">
+    </div>
+  </div>
+
+  <script>
+    const noBtn = document.getElementById("noBtn");
+
+    noBtn.addEventListener("mouseenter", () => {
+      const x = Math.random() * 200 - 100;
+      const y = Math.random() * 50 - 25;
+      noBtn.style.transform = `translate(${x}px, ${y}px)`;
+    });
+
+    function showLove() {
+      document.getElementById("popup").style.display = "flex";
+    }
+  </script>
+
+</body>
+</html>
